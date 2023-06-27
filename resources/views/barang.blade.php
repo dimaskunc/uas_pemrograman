@@ -37,10 +37,10 @@
                       <tr>
                         <td>{{$row->id}}</td>
                         <td class="text-center"><img style="width: 100px;" src="{{ asset('/images/')}}/{{$row->foto }}" alt=""></td>
-                        <td style="width: 25%;">{{$row->nama_barang}}</td>
-                        <td style="width: 25%;">{{$row->stok_barang}}</td>
-                        <td style="width: 25%;">{{$row->harga_beli}}</td>
-                        <td style="width: 25%;">{{$row->harga_jual}}</td>
+                        <td style="width: 15%;">{{$row->nama_barang}}</td>
+                        <td style="width: 15%;">{{$row->stok_barang}}</td>
+                        <td style="width: 15%;">{{$row->harga_beli}}</td>
+                        <td style="width: 15%;">{{$row->harga_jual}}</td>
                         <td>
                           <div class="d-flex justify-content-center py-3">
                           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal{{$row->id}}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
