@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Barang;
 use Illuminate\Support\Facades\Storage;
 use Session;
+use PDF;
+use DB;
 
 class BarangController extends Controller
 {
@@ -13,6 +15,14 @@ class BarangController extends Controller
     {
         $data = Barang::all();
         return view('barang', compact('data'));
+    }
+
+    public function pdf()
+    {
+        $data = DB::select('select * from tb_barang');
+        $pdf = PDF::loadView('barang-pdf',compact('data'));
+          $pdf->setPaper('A4', 'potrait'); 
+            return $pdf->stream('Data Barang.pdf');
     }
 
     public function simpan(Request $request)
