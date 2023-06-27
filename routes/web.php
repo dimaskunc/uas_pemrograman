@@ -28,3 +28,4 @@ Route::post('/simpan-data-barang', [App\Http\Controllers\BarangController::class
 Route::get('/hapus-data-barang/{id}', [App\Http\Controllers\BarangController::class, 'hapus'])->name('hapus');
 Route::post('/update-data-barang/{id}', [App\Http\Controllers\BarangController::class, 'update'])->name('update');
 
+Route::get('/barang-pdf', [App\Http\Controllers\BarangController::class, 'pdf'])->name('barangpdf');
