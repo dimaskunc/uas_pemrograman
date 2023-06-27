@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div style="text-align: center;margin-bottom: 10px;font-size: 30px;">{{ __('Penelitian') }}</div>
+                <div style="text-align: center;margin-bottom: 10px;font-size: 30px;">{{ __('Barang') }}</div>
               <div class="card-body">
                 <div class="table table-responsive">
                     <table class="table table-responsive table-bordered table-striped table-hover">
