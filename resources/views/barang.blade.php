@@ -5,11 +5,97 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
-@extends('layouts.app')
+@extends('layouts.apps')
 @extends('layouts.alert')
 
 @section('content')
+<div class="">
+  <div class="d-flex flex-nowrap" style="position: relative;">
+    <div class="col-auto col-md-3 col-xl-2 mx-0 px-0 bg-dark h-100" style="position: sticky; top: 0;">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+        <li class="nav-item mt-2">
 
+        <a class="navbar-brand mt-3" href="#">
+          <img src="https://i.postimg.cc/Mpb92L9s/logo-warung-sembako-7-removebg-preview.png" alt="" width="90" height="120" class="ms-3 mt-1">
+        </a>
+            <a style="color: white" class="nav-link align-middle px-0" href="{{route('home')}}">
+              <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"> <span><svg xmlns="http://www.w3.org/2000/svg" class="mb-1 me-2" fill="none" width="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              </svg>Data User</span>
+            </a>
+          </li>
+                  <li>
+                    <a style="color: white" class="nav-link px-0 align-middle mt-2" href="{{route('barang')}}">
+                      <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" class="me-1" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" />
+                      </svg>
+                    Data Barang</span> </a>
+                  </li>
+                </ul>
+                
+              </div>
+            </div>
+            <div class="col py-3" style="position: relative;">
+              <nav style="position: sticky; top: 0; z-index: 20;" class="navbar navbar-expand-md navbar-light bg-light shadow p-3 mb-1 bg-body-tertiary rounded">
+                <div class="container">
+                  <a class="navbar-brand fs-3" href="{{ url('/') }}">
+                    <h5 class="card-title">Selamat Datang Di Halaman Admin</h5> 
+                  </a>
+                  
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                      <!-- Authentication Links -->
+                      @guest
+                      @if (Route::has('login'))
+                      <li class="nav-item">
+                        <a class="btn btn-primary btn-md " href="{{ route('login') }}">{{ __('Login') }}</a>
+                      </li>
+                      @endif
+
+                      @if (Route::has('register'))
+                      <li class="nav-item">
+                        <a class=" btn btn-primary btn-md ms-3" href="{{ route('register') }}">{{ __('Register') }}</a>
+                      </li>
+                      @endif
+                      @else
+                      <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ route('logout') }}"
+                          onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" class="ms-5" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                          </svg>
+
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                        </form>
+                      </div>
+                    </li>
+                    @endguest
+                  </ul>
+                </div>
+              </div>
+            </nav>
 <div class="card mt-3">
               <h5 class="card-header">Barang</h5>
               <div class="card-body">
