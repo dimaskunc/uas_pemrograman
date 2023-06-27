@@ -146,13 +146,13 @@
                     <label for="file-foto">Foto</label>
                     <input id="file-foto" type="file" name="foto" class="form-control" value="{{$row->foto}}">
                     <label>Nama Barang</label>
-                    <input type="text" name="nama_barang" class="form-control" value="{{('$row->nama_barang')}}">
+                    <input type="text" name="nama_barang" class="form-control" value="{{$row->nama_barang}}">
                     <label>Stok Barang</label>
-                    <input type="number" name="stok_barang" class="form-control" value="{{('$row->stok_barang')}}">
+                    <input type="number" name="stok_barang" class="form-control" value="{{$row->stok_barang}}">
                     <label>Harga beli</label>
-                    <input type="number" name="harga_beli" class="form-control" value="{{('$row->harga_beli')}}">
+                    <input type="number" name="harga_beli" class="form-control" value="{{$row->harga_beli'}">
                     <label>Harga Jual</label>
-                    <input type="number" name="harga_jual" class="form-control" value="{{('$row->harga_jual')}}">
+                    <input type="number" name="harga_jual" class="form-control" value="{{$row->harga_jual'}">
                   </div>
 
                   <!-- Modal footer -->
