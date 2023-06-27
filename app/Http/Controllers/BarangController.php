@@ -19,9 +19,9 @@ class BarangController extends Controller
     {
         $request->validate([
             'nama_barang' => 'required|string',
-            'stok_barang' => 'required|number',
-            'harga_beli' => 'required|number',
-            'harga_jual' => 'required|number',
+            'stok_barang' => 'required',
+            'harga_beli' => 'required',
+            'harga_jual' => 'required',
         ]);
 
         $file = $request->file('foto2');
