@@ -1,25 +1,14 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
 @extends('layouts.app')
+@extends('layouts.alert')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="card mt-3">
               <h5 class="card-header">Barang</h5>
@@ -157,13 +146,13 @@
                     <label for="file-foto">Foto</label>
                     <input id="file-foto" type="file" name="foto" class="form-control" value="{{$row->foto}}">
                     <label>Nama Barang</label>
-                    <input type="text" name="nama_barang" class="form-control" value="{{ old('nama_barang')}}">
+                    <input type="text" name="nama_barang" class="form-control" value="{{('$row->nama_barang')}}">
                     <label>Stok Barang</label>
-                    <input type="number" name="stok_barang" class="form-control" value="{{ old('stok_barang')}}">
+                    <input type="number" name="stok_barang" class="form-control" value="{{('$row->stok_barang')}}">
                     <label>Harga beli</label>
-                    <input type="number" name="harga_beli" class="form-control" value="{{ old('harga_beli')}}">
+                    <input type="number" name="harga_beli" class="form-control" value="{{('$row->harga_beli')}}">
                     <label>Harga Jual</label>
-                    <input type="number" name="harga_jual" class="form-control" value="{{ old('harga_jual')}}">
+                    <input type="number" name="harga_jual" class="form-control" value="{{('$row->harga_jual')}}">
                   </div>
 
                   <!-- Modal footer -->
